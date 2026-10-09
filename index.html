@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life Dashboard - Deep Blue Edition</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="dashboard-wrapper">
+    <!-- Header: Greeting, Clock & Theme Toggle -->
+    <header class="card header-card">
+      <div class="header-content">
+        <div class="time-block">
+          <h1 id="clock">00:00:00</h1>
+          <p id="date">Loading Date...</p>
+        </div>
+        <div class="greeting-block">
+          <h2 id="greeting">Good Morning</h2>
+          <div class="name-box">
+            <input type="text" id="usernameInput" placeholder="Set display name..." />
+            <button id="saveNameBtn" class="btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+      <button id="themeToggleBtn" class="theme-toggle">☀️ Light Mode</button>
+    </header>
+
+    <!-- Main Dashboard Grid -->
+    <main class="dashboard-grid">
+      <!-- Focus Timer Widget -->
+      <section class="card widget-card timer-widget">
+        <div class="widget-header">
+          <h3>⏱️ Focus Timer</h3>
+        </div>
+        <div class="timer-circle">
+          <div id="timerDisplay" class="timer-text">25:00</div>
+        </div>
+        <div class="timer-actions">
+          <button id="startTimerBtn" class="btn-action btn-start">Start</button>
+          <button id="stopTimerBtn" class="btn-action btn-stop">Stop</button>
+          <button id="resetTimerBtn" class="btn-action btn-reset">Reset</button>
+        </div>
+        <div class="timer-custom-row">
+          <input type="number" id="customMinutes" placeholder="Mins" min="1" max="120" value="25">
+          <button id="setTimerBtn" class="btn-secondary">Set Custom</button>
+        </div>
+      </section>
+
+      <!-- To-Do List Widget -->
+      <section class="card widget-card todo-widget">
+        <div class="widget-header">
+          <h3>📋 Task Manager</h3>
+          <select id="sortSelect" class="custom-select">
+            <option value="default">Default</option>
+            <option value="alpha">A-Z</option>
+            <option value="status">Pending First</option>
+          </select>
+        </div>
+        <form id="todoForm" class="todo-input-group">
+          <input type="text" id="todoInput" placeholder="Add a new task..." required>
+          <button type="submit" class="btn-primary">+ Add</button>
+        </form>
+        <ul id="todoList" class="todo-item-list"></ul>
+      </section>
+
+      <!-- Quick Links Widget -->
+      <section class="card widget-card links-widget">
+        <div class="widget-header">
+          <h3>🔗 Quick Bookmarks</h3>
+        </div>
+        <form id="linkForm" class="link-input-group">
+          <input type="text" id="linkNameInput" placeholder="Bookmark Name" required>
+          <input type="url" id="linkUrlInput" placeholder="https://example.com" required>
+          <button type="submit" class="btn-primary">Add Link</button>
+        </form>
+        <div id="quickLinksContainer" class="quick-links-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
